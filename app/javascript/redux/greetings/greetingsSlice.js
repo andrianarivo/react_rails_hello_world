@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
@@ -8,7 +8,7 @@ const initialState = {
   errMsg: '',
 };
 
-const getGreeting = createAsyncThunk('greetings/getGreeting', async ({url}, thunkAPI) => {
+const getGreeting = createAsyncThunk('greetings/getGreeting', async ({ url }, thunkAPI) => {
   try {
     const resp = await axios.get(url);
     return resp.data;
@@ -37,6 +37,6 @@ const greetingsSlice = createSlice({
   },
 });
 
-export {getGreeting};
+export { getGreeting };
 
 export default greetingsSlice.reducer;

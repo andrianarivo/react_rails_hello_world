@@ -1,11 +1,11 @@
-const path    = require("path")
-const webpack = require("webpack")
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  mode: "development",
-  devtool: "source-map",
+  mode: 'development',
+  devtool: 'source-map',
   entry: {
-    application: "./app/javascript/application.js"
+    application: './app/javascript/application.js',
   },
   module: {
     rules: [
@@ -17,17 +17,17 @@ module.exports = {
     ],
   },
   output: {
-    filename: "[name].js",
-    sourceMapFilename: "[file].map",
-    path: path.resolve(__dirname, "app/assets/builds"),
+    filename: '[name].js',
+    sourceMapFilename: '[file].map',
+    path: path.resolve(__dirname, 'app/assets/builds'),
   },
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1
-    })
+      maxChunks: 1,
+    }),
   ],
   devServer: {
-    static: path.resolve(__dirname, "app/assets/builds"),
+    static: path.resolve(__dirname, 'app/assets/builds'),
     port: 3001,
-  }
-}
+  },
+};

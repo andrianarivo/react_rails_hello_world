@@ -1,20 +1,20 @@
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {selectGreetings} from "../redux/store";
-import {getGreeting} from "../redux/greetings/greetingsSlice";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectGreetings } from '../redux/store';
+import { getGreeting } from '../redux/greetings/greetingsSlice';
 
 function Greeting() {
   const {
     greetingData, loading, error, errMsg,
-  } = useSelector(selectGreetings)
+  } = useSelector(selectGreetings);
   const dispatch = useDispatch();
 
   const refresh = () => {
-    dispatch(getGreeting({url: '/api/v1/greeting'}));
-  }
+    dispatch(getGreeting({ url: '/api/v1/greeting' }));
+  };
 
   useEffect(() => {
-    refresh()
+    dispatch(getGreeting({ url: '/api/v1/greeting' }));
   }, [dispatch]);
 
   if (loading) {
@@ -40,7 +40,7 @@ function Greeting() {
     <main>
       <h1>Rails & React</h1>
       <p>{greetingData.greeting}</p>
-      <button onClick={refresh}>Refresh</button>
+      <button type="button" onClick={refresh}>Refresh</button>
     </main>
   );
 }

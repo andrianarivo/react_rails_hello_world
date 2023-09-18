@@ -1,4 +1,4 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import greetingsReducer from './greetings/greetingsSlice';
 
 const store = configureStore({
@@ -9,6 +9,6 @@ const store = configureStore({
 
 const selectGreetings = (store) => store.greetings;
 
-export {selectGreetings};
+export { selectGreetings };
 
 export default store;
